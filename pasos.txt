@@ -152,5 +152,114 @@ console.log('Server runnig on port 3000')
 // Para ejecutar servidor:
 // npm run dev
 /////////////////////////////////////////////////////////////////
+CONEXION mysql:
 
+next@rases:~$ sudo su
+root@rases:/home/next# mysql
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 32
+Server version: 10.6.12-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
 
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show database
+    -> Ctrl-C -- exit!
+Aborted
+root@rases:/home/next# mysql
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 33
+Server version: 10.6.12-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0,001 sec)
+
+MariaDB [(none)]> CREATE DATABASE IF NOT EXISTS companydb
+    -> ;
+Query OK, 1 row affected (0,000 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| companydb          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0,000 sec)
+
+MariaDB [(none)]> use companydb
+Database changed
+MariaDB [companydb]> CREATE TABLE employee (
+    ->   id INT(11) NOT NULL AUTO_INCREMENT,
+    ->   name VARCHAR(45) DEFAULT NULL,
+    ->   salary INT(11) DEFAULT NULL, 
+    ->   PRIMARY KEY(id)
+    -> );
+Query OK, 0 rows affected (0,022 sec)
+
+MariaDB [companydb]> show tables;
++---------------------+
+| Tables_in_companydb |
++---------------------+
+| employee            |
++---------------------+
+1 row in set (0,000 sec)
+
+MariaDB [companydb]> describe employee;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(45) | YES  |     | NULL    |                |
+| salary | int(11)     | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+3 rows in set (0,001 sec)
+
+MariaDB [companydb]> 
+
+/////////////////////////////////////////////////////////////////
+
+next@rases:~/Música/NODEJS-REST-API-MYSQL$ npm i mysql2
+
+added 11 packages, and audited 101 packages in 10s
+
+10 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+next@rases:~/Música/NODEJS-REST-API-MYSQL$ 
+
+/////////////////////////////////////////////////////////////////
+
+Creamos archivo de conexion:
+db.js:
+
+import { createPool } from "mysql2/promise";
+
+export const pool = createPool({
+    host: 'localhost',
+    user: 'root',
+    pasword: '',
+    dabase: 'companydb'
+})
+/////////////////////////////////////////////////////////////////
+
+Modificamos archivo index.js:
+Añado:
+app.get('/ping',(req, res) => res.send('pong));
