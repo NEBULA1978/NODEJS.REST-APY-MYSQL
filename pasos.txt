@@ -59,6 +59,67 @@ import express from 'express'
 // METODO antiguo
 // const express = require('express')
 
+const app = express()
+
+app.listen(3000)
+
+next@rases:~/Música/NODEJS-REST-API-MYSQL$ node index.js 
+Ejecutamos servidor basico en el puerto 3000
+localhost://3000
+
+Nos devuelve:
+Cannot GET /
 
 /////////////////////////////////////////////////////////////////
 
+Intalamos nodemom como dependencia de desarrollo:
+
+next@rases:~/Música/NODEJS-REST-API-MYSQL$ npm i nodemon -D
+
+added 32 packages, and audited 90 packages in 12s
+
+10 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+next@rases:~/Música/NODEJS-REST-API-MYSQL$
+
+
+ /////////////////////////////////////////////////////////////////
+Modifico package.json para utilizar nodemon:
+
+{
+  "name": "nodejs-rest-api-mysql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
+
+Para ejecutar:
+
+next@rases:~/Música/NODEJS-REST-API-MYSQL$ npm run dev
+
+> nodejs-rest-api-mysql@1.0.0 dev
+> nodemon index.js
+
+[nodemon] 2.0.22
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `node index.js`
+
+
+ /////////////////////////////////////////////////////////////////
