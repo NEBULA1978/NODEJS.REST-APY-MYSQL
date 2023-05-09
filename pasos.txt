@@ -1,0 +1,33 @@
+next@rases:~/Música/NODEJS-REST-API-MYSQL$ npm init -yST-API-MYSQL$
+Wrote to /home/next/Música/NODEJS-REST-API-MYSQL/package.json:
+
+{
+  "name": "nodejs-rest-api-mysql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
+
+next@rases:~/Música/NODEJS-REST-API-MYSQL$
+
+/////////////////////////////////////////////////////////////////
+
+next@rases:~/Música/NODEJS-REST-API-MYSQL$ npm i express
+
+added 57 packages, and audited 58 packages in 11s
+
+7 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+next@rases:~/Música/NODEJS-REST-API-MYSQL$ 
+
+/////////////////////////////////////////////////////////////////
+
