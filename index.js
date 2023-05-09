@@ -14,6 +14,7 @@ app.get("/ping", async (req, res) => {
   const [result] = await pool.query("SELECT 1 + 1 AS result")
   res.json(result);
 });
+// Me da error arriba
 
 // Para ver en web:
 // http://localhost:3000/employees
@@ -31,4 +32,4 @@ console.log("Server runnig on port 3000");
 // Para ejecutar servidor:
 // npm run dev
 
-// VOY minuto 22
+// VOY minuto 31
