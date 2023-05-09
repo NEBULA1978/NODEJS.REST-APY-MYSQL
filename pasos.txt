@@ -31,3 +31,34 @@ next@rases:~/Música/NODEJS-REST-API-MYSQL$
 
 /////////////////////////////////////////////////////////////////
 
+Modifico package.json para poder utilizar modulos express:
+
+{
+  "name": "nodejs-rest-api-mysql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
+
+/////////////////////////////////////////////////////////////////
+
+Archivo index.js:
+
+import express from 'express'
+
+// METODO antiguo
+// const express = require('express')
+
+
+/////////////////////////////////////////////////////////////////
+
